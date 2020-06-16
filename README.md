@@ -4,7 +4,7 @@ O projeto trata-se de uma API para efetuar as operações de CRUD **(Create, Rea
 
 A ideia principal parece simples, e na verdade é, mas com testes automatizados e guiando-se por estes durante o desenvolvimento, ou seja, TDD **(Test Driven Development)**.
 
-## :paperclip: Pequena demonstação sobre o que foi desenvolvido
+## :paperclip: Pequena demonstração sobre o que foi desenvolvido
 
 #### Resultado dos testes automatizados. No total de 9 testes, os 9 obtiveram êxito.
 
