@@ -31,11 +31,38 @@ app.post("/repositories", (request, response) => {
 });
 
 app.put("/repositories/:id", (request, response) => {
-  // TODO
+  const { id } = request.params;
+  const { url, title, techs } = request.body;
+
+  const repoIndex = repositories.findIndex(repo => repo.id === id);
+
+  if (!repositories[repoIndex]) {
+    return response.status(400).json({ error: "Repository does not exist" });
+  }
+
+  repositories[repoIndex] = {
+    id: repositories[repoIndex].id,
+    url,
+    title,
+    techs,
+    likes: repositories[repoIndex].likes
+  }
+
+  return response.json(repositories[repoIndex]);
 });
 
 app.delete("/repositories/:id", (request, response) => {
-  // TODO
+  const { id } = request.params;
+
+  const repoIndex = repositories.findIndex(repo => repo.id === id);
+
+  if (!repositories[repoIndex]) {
+    return response.status(400).json({ error: "Repository does not exist" });
+  }
+
+  repositories.splice(repoIndex, 1);
+
+  return response.sendStatus(204);
 });
 
 app.post("/repositories/:id/like", (request, response) => {
